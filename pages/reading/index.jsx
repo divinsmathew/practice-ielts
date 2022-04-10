@@ -1,43 +1,26 @@
 import Head from "next/head";
-import styles from "./Home.module.scss";
-import SectionButton from "./SectionButton";
+import styles from "./Reading.module.scss";
+import Header from "../Header";
+import Footer from "../Footer";
 
-import { FaHeadphonesAlt } from "react-icons/fa";
-import { VscBook } from "react-icons/vsc";
-
-export default function Home() {
+const Reading = () => {
     return (
-        <div className={styles.container}>
+        <>
             <Head>
-                <title>Practice IELTS</title>
+                <title>Reading | Practice IELTS</title>
                 <meta
-                    name="Practice IELTS"
-                    content="Sharpen your reading and listening skills and ace your IELTS exams!"
+                    name="Reading | Practice IELTS"
+                    content="Sharpen your reading skills and ace your IELTS exam."
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <div className="container">
+                <Header fromPage="reading" />
 
-            <main className={styles.main}>
-                <h1 className={styles.title}>Practice IELTS</h1>
-                <div className={styles.description}>
-                    Sharpen your reading and listening skills and ace your IELTS
-                    exam.
-                </div>
-                <div className={styles["root-sections"] + " mt-10"}>
-                    <SectionButton
-                        href="/reading"
-                        textSecondary="Reading"
-                        icon={<VscBook size={60} />}
-                    />
-                    <SectionButton
-                        href="/listening"
-                        textSecondary="Listening"
-                        icon={<FaHeadphonesAlt size={60} />}
-                    />
-                </div>
-            </main>
-
-            <footer className={styles.footer}></footer>
-        </div>
+                <main className={styles.main}></main>
+                <Footer />
+            </div>
+        </>
     );
-}
+};
+export default Reading;
