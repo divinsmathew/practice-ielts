@@ -1,5 +1,21 @@
 @use "Breakpoints";
 
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.422;
+
+    @include Breakpoints.phone {
+        -webkit-tap-highlight-color: transparent;
+    }
+    @include Breakpoints.tablet {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
 ::selection {
     background-color: var(--background-color-select);
 }
