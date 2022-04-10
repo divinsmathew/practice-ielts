@@ -2,12 +2,14 @@ import Head from "next/head";
 import styles from "./Home.module.scss";
 import SectionButton from "./SectionButton";
 
-import { FaHeadphonesAlt } from "react-icons/fa";
-import { VscBook } from "react-icons/vsc";
+import { FiHeadphones, FiBookOpen } from "react-icons/fi";
 
-export default function Home() {
+import Header from "./Header";
+import Footer from "./Footer";
+
+const Home = () => {
     return (
-        <div className={styles.container}>
+        <>
             <Head>
                 <title>Practice IELTS</title>
                 <meta
@@ -15,29 +17,41 @@ export default function Home() {
                     content="Sharpen your reading and listening skills and ace your IELTS exams!"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossorigin
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
-
-            <main className={styles.main}>
-                <h1 className={styles.title}>Practice IELTS</h1>
-                <div className={styles.description}>
-                    Sharpen your reading and listening skills and ace your IELTS
-                    exam.
-                </div>
-                <div className={styles["root-sections"] + " mt-10"}>
-                    <SectionButton
-                        href="/reading"
-                        textSecondary="Reading"
-                        icon={<VscBook size={60} />}
-                    />
-                    <SectionButton
-                        href="/listening"
-                        textSecondary="Listening"
-                        icon={<FaHeadphonesAlt size={60} />}
-                    />
-                </div>
-            </main>
-
-            <footer className={styles.footer}></footer>
-        </div>
+            <div className="container">
+                <Header fromPage="home" />
+                <main className={styles.main}>
+                    <h1 className={styles.title}>Practice IELTS</h1>
+                    <div className={styles.description}>
+                        Sharpen your reading and listening skills and ace your
+                        IELTS exam.
+                    </div>
+                    <div className={styles["root-sections"] + " mt-15"}>
+                        <SectionButton
+                            href="/reading"
+                            textSecondary="Reading"
+                            icon={<FiBookOpen size={60} />}
+                        />
+                        <SectionButton
+                            href="/listening"
+                            textSecondary="Listening"
+                            icon={<FiHeadphones size={60} />}
+                        />
+                    </div>
+                </main>
+                <Footer />
+            </div>
+        </>
     );
-}
+};
+export default Home;
