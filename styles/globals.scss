@@ -3,13 +3,20 @@
 @use "Utils";
 
 :root {
-    --font-heading: Inter var, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
-        Noto Color Emoji;
-
     --color-background: #0f142a;
     --color-text: #fff;
     --color-accent: #818cf8;
     --color-accent-light: hsl(234, 89%, 90%);
+}
+
+body {
+    font-family: "Nunito", sans-serif, AllianceNo1 Web, system-ui, -apple-system,
+        Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif,
+        BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
