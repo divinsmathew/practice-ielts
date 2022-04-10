@@ -1,0 +1,24 @@
+@use "Breakpoints";
+
+::selection {
+    background-color: var(--background-color-select);
+}
+
+body {
+    overflow: overlay;
+    height: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-color);
+        border: 3px solid var(--background-color);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}

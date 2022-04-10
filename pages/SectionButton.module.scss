@@ -1,0 +1,65 @@
+.section-button {
+    display: inline-block;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: #2a3144;
+    position: relative;
+    transition: background-color 0.2s ease-in-out;
+
+    & > svg {
+        position: absolute;
+        top: 2px;
+        right: 6px;
+        opacity: 0.5;
+        transition: right 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: hsl(224, 24%, 24%);
+        & > svg {
+            right: 3px;
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        outline: 2px solid var(--color-accent-light);
+    }
+    &::before {
+        content: "Practice";
+        display: block;
+        font-weight: normal;
+        font-size: 0.985rem;
+        padding: 0.5rem 0.8rem;
+        text-align: left;
+        background-color: rgb(51 65 85);
+        border-radius: 0.4rem 0.4rem 0 0;
+    }
+}
+
+.section-button-text-secondary {
+    position: relative;
+    gap: 2rem;
+    display: flex;
+    padding: 1.5rem 5rem 2.2rem 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    overflow: hidden;
+
+    & > svg {
+        position: absolute;
+        right: 0;
+        transform: translate(30%, -7px);
+        opacity: 0.5;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover {
+        & > svg {
+            opacity: 0.8;
+            transform: scale(1.05) translate(30%, -7px);
+        }
+    }
+}
