@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1.3rem 3rem 1.2rem 3rem;
+    background-color: hsl(224, 24%, 18%);
+
+    & > nav {
+        display: flex;
+        gap: 1.2rem;
+
+        .header-link {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 0.4rem 0.8rem 0rem 0.8rem;
+            border-radius: 0.3rem;
+
+            &:hover,
+            &:focus {
+                color: var(--color-primary);
+                background-color: hsl(224, 24%, 30%);
+            }
+            &:focus-visible {
+                outline: 2px solid var(--color-accent-light);
+            }
+            &:active {
+                opacity: 0.5;
+            }
+        }
+
+        .selected {
+            background-color: hsl(224, 24%, 25%);
+        }
+    }
+}
