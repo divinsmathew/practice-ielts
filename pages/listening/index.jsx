@@ -1,9 +1,31 @@
 import Head from "next/head";
-import styles from "./Listening.module.scss";
-import Header from "../Header";
-import Footer from "../Footer";
 
-const Listening = () => {
+import styles from "./Listening.module.scss";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import AudioVisualizer from "components/AudioVisualizer";
+import AdsAndContainer from "components/AdsAndContainer";
+
+import { LISTENING_TESTS } from "./constants";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+import { getRandomIntegerInRange } from "../utils";
+
+const Listening = ({ testId }) => {
+    const router = useRouter();
+    const [test, setTest] = useState();
+
+    useEffect(() => {
+        if (!testId) {
+            const keys = Object.keys(LISTENING_TESTS);
+            testId = keys[getRandomIntegerInRange(0, keys.length - 1)];
+            router.push(`/listening/${testId}`, undefined, { shallow: true });
+        }
+        setTest(LISTENING_TESTS[testId]);
+    }, []);
+
     return (
         <>
             <Head>
@@ -17,7 +39,13 @@ const Listening = () => {
             <div className="container">
                 <Header fromPage="listening" />
 
-                <main className={styles.main}></main>
+                <main className={styles.main}>
+                    <AdsAndContainer>
+                        <div>
+                            <AudioVisualizer test={test} />
+                        </div>
+                    </AdsAndContainer>
+                </main>
                 <Footer />
             </div>
         </>

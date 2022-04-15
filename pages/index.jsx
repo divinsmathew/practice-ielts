@@ -1,11 +1,11 @@
 import Head from "next/head";
 import styles from "./Home.module.scss";
-import SectionButton from "./SectionButton";
+import SectionButton from "components/SectionButton";
 
 import { FiHeadphones, FiBookOpen } from "react-icons/fi";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 const Home = () => {
     return (
