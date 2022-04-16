@@ -1,12 +1,14 @@
 @use "Breakpoints";
 @use "Reset";
 @use "Utils";
+@use "Common";
 
 :root {
     --color-background: #0f142a;
     --color-text: #fff;
     --color-accent: #818cf8;
     --color-accent-light: hsl(234, 89%, 90%);
+    --color-border: #475160;
 }
 
 body {
