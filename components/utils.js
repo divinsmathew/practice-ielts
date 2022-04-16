@@ -18,4 +18,16 @@ const getTimeStampFromSeconds = (totalSeconds) => {
     return durationString;
 };
 
-export { getRandomIntegerInRange, getTimeStampFromSeconds };
+const drawVisualizer = (canvas, normalizedData, wrapperClass) => {
+    const lineWidth = 5;
+    for (let i = 0; i < normalizedData.length; i++) {
+        const newSpan = document.createElement("span");
+        newSpan.style.width = `${lineWidth}px`;
+        newSpan.style.height = `${normalizedData[i] * 50}px`;
+        newSpan.style.borderRadius = `${lineWidth}px`;
+        newSpan.className = wrapperClass;
+        canvas.appendChild(newSpan);
+    }
+};
+
+export { getRandomIntegerInRange, getTimeStampFromSeconds, drawVisualizer };
