@@ -3,7 +3,7 @@ import styles from "./AudioVisualizer.module.scss";
 import ReactPlayer from "react-player";
 import { useRef, useState } from "react";
 
-import { getTimeStampFromSeconds } from "../utils";
+import { getTimeStampFromSeconds, drawVisualizer } from "../utils";
 
 const AudioVisualizer = ({ test, isTestPlaying }) => {
     const audioPlayerRef = useRef();
@@ -13,22 +13,14 @@ const AudioVisualizer = ({ test, isTestPlaying }) => {
 
     const [currentDuration, setCurrentDuration] = useState("00:00");
 
-    const drawVisualizer = (canvas, normalizedData) => {
-        const lineWidth = 5;
-        for (let i = 0; i < normalizedData.length; i++) {
-            const newSpan = document.createElement("span");
-            newSpan.style.width = `${lineWidth}px`;
-            newSpan.style.height = `${normalizedData[i] * 50}px`;
-            newSpan.style.borderRadius = `${lineWidth}px`;
-            newSpan.className = styles["visualizer-bar"];
-            canvas.appendChild(newSpan);
-        }
-    };
-
     const updateTotalDuration = (duration) => {
         totalDuration.current = duration;
         setCurrentDuration(getTimeStampFromSeconds(duration));
-        drawVisualizer(visualizerRef.current, test.wavePoints);
+        drawVisualizer(
+            visualizerRef.current,
+            test.wavePoints,
+            styles["visualizer-bar"]
+        );
     };
 
     const updatePlayerSeekStatus = (status) => {
@@ -42,7 +34,7 @@ const AudioVisualizer = ({ test, isTestPlaying }) => {
             <div className={styles["visualizer-wrapper"]}>
                 <ReactPlayer
                     ref={audioPlayerRef}
-                    playing={true}
+                    playing={isTestPlaying}
                     url={`/assets/audio/${test.id}.mp3`}
                     onDuration={updateTotalDuration}
                     onProgress={updatePlayerSeekStatus}
