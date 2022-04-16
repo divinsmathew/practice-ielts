@@ -11,8 +11,6 @@ import { LISTENING_TESTS } from "./constants";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { getRandomIntegerInRange } from "components/utils";
-
 const Listening = () => {
     const router = useRouter();
     const [test, setTest] = useState();
@@ -32,7 +30,7 @@ const Listening = () => {
     };
 
     useEffect(() => {
-        let testId = router.query.index;
+        let testId = router.query["test-id"];
         if (!testId) return;
         setTest(LISTENING_TESTS[testId]);
     }, [router]);
