@@ -5,7 +5,7 @@
         display: flex;
         justify-content: space-between;
         padding: 1.2rem 2rem;
-        border-bottom: 1px solid #475160;
+        border-bottom: 1px solid var(--color-border);
         z-index: 2;
         height: 100%;
         width: 100%;
@@ -15,7 +15,7 @@
 
         .test-title {
             z-index: 4;
-            background-color: #0f142aea;
+            background-color: #0f142aaa;
             border-radius: 1rem;
             padding: 0.5rem 1.5rem;
         }
@@ -33,7 +33,7 @@
         z-index: 2;
 
         .visualizer-bar {
-            background-color: #475160;
+            background-color: var(--color-border);
         }
     }
 
