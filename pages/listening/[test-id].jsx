@@ -5,11 +5,13 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import AudioVisualizer from "components/AudioVisualizer";
 import AdsAndContainer from "components/AdsAndContainer";
+import ListeningTest from "components/ListeningTest";
 
 import { LISTENING_TESTS } from "./constants";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Modal from "components/Modal";
 
 const Listening = () => {
     const router = useRouter();
@@ -61,11 +63,13 @@ const Listening = () => {
                             <section
                                 className={styles["instruction-container"]}
                             >
-                                <div className={styles["instruction-modal"]}>
-                                    <div className={styles["modal-header"]}>
+                                <Modal
+                                    wrapperClass={styles["instruction-modal"]}
+                                >
+                                    <Modal.Header>
                                         Listening Test Instructions
-                                    </div>
-                                    <div className={styles["modal-body"]}>
+                                    </Modal.Header>
+                                    <Modal.Body>
                                         <ul>
                                             <li>
                                                 Listen to the audio and answer
@@ -87,22 +91,22 @@ const Listening = () => {
                                                 the test.
                                             </li>
                                         </ul>
-                                    </div>
-                                    <div className={styles["modal-footer"]}>
+                                    </Modal.Body>
+                                    <Modal.Footer>
                                         <button
                                             className="button"
                                             onClick={startTest}
                                         >
                                             Start Test
                                         </button>
-                                    </div>
-                                </div>
+                                    </Modal.Footer>
+                                </Modal>
                             </section>
                         )}
 
                         {shouldShowQuestions() && (
                             <section className={styles["question-container"]}>
-                                Questions
+                                <ListeningTest data={test} />
                             </section>
                         )}
                     </AdsAndContainer>
