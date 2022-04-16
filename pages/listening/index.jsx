@@ -17,6 +17,19 @@ const Listening = ({ testId }) => {
     const router = useRouter();
     const [test, setTest] = useState();
     const [isTestPlaying, setIsTestPlaying] = useState(false);
+    const [isQuestionsVisible, setIsQuestionsVisible] = useState(false);
+    const [isInstructionsVisible, setIsInstructionsVisible] = useState(true);
+
+    const shouldShowInstructions = () =>
+        isInstructionsVisible && !isQuestionsVisible;
+    const shouldShowQuestions = () =>
+        isQuestionsVisible && !isInstructionsVisible;
+
+    const startTest = () => {
+        setIsInstructionsVisible(false);
+        setIsQuestionsVisible(true);
+        setIsTestPlaying(true);
+    };
 
     useEffect(() => {
         if (!testId) {
@@ -25,6 +38,7 @@ const Listening = ({ testId }) => {
             router.push(`/listening/${testId}`, undefined, { shallow: true });
         }
         setTest(LISTENING_TESTS[testId]);
+        console.log("[index]", testId);
     }, []);
 
     return (
@@ -39,14 +53,64 @@ const Listening = ({ testId }) => {
             </Head>
             <div className="container">
                 <Header fromPage="listening" />
-
                 <main className={styles.main}>
                     <AdsAndContainer>
                         <AudioVisualizer
                             isTestPlaying={isTestPlaying}
                             test={test}
                         />
-                        <section className="question-container"></section>
+                        <section
+                            className={styles["question-container"]}
+                        ></section>
+
+                        {shouldShowInstructions() && (
+                            <section
+                                className={styles["instruction-container"]}
+                            >
+                                <div className={styles["instruction-modal"]}>
+                                    <div className={styles["modal-header"]}>
+                                        Listening Test Instructions
+                                    </div>
+                                    <div className={styles["modal-body"]}>
+                                        <ul>
+                                            <li>
+                                                Listen to the audio and answer
+                                                the questions carefully.
+                                            </li>
+                                            <li>
+                                                The audio will be played only
+                                                once, pausing or re-playing
+                                                won't be allowed.
+                                            </li>
+                                            <li>
+                                                Test will auto end when the
+                                                timer runs out. You will also
+                                                have an option to end the test
+                                                early.
+                                            </li>
+                                            <li>
+                                                Click the button below to start
+                                                the test.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className={styles["modal-footer"]}>
+                                        <button
+                                            className="button"
+                                            onClick={startTest}
+                                        >
+                                            Start Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
+
+                        {shouldShowQuestions() && (
+                            <section className={styles["question-container"]}>
+                                Questions
+                            </section>
+                        )}
                     </AdsAndContainer>
                 </main>
                 <Footer />
