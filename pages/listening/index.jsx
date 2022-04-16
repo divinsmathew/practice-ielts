@@ -11,11 +11,12 @@ import { LISTENING_TESTS } from "./constants";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { getRandomIntegerInRange } from "../utils";
+import { getRandomIntegerInRange } from "components/utils";
 
 const Listening = ({ testId }) => {
     const router = useRouter();
     const [test, setTest] = useState();
+    const [isTestPlaying, setIsTestPlaying] = useState(false);
 
     useEffect(() => {
         if (!testId) {
@@ -41,9 +42,11 @@ const Listening = ({ testId }) => {
 
                 <main className={styles.main}>
                     <AdsAndContainer>
-                        <div>
-                            <AudioVisualizer test={test} />
-                        </div>
+                        <AudioVisualizer
+                            isTestPlaying={isTestPlaying}
+                            test={test}
+                        />
+                        <section className="question-container"></section>
                     </AdsAndContainer>
                 </main>
                 <Footer />
