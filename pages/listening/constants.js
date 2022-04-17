@@ -40,55 +40,53 @@ const LISTENING_TESTS = {
             0.40197072982693816, 0.38269821239719526, 0.31633498034601304,
             0.285803434676343, 0.6220579991253328, 0.3213967205217062,
         ],
-        questions: [
+        sections: [
             {
-                section1: {
-                    title: "Part 1",
-                    questions: [
-                        {
-                            id: "q1-q5",
-                            questionRange: [1, 5],
-                            title: null,
-                            type: "tabular",
-                            questionHtml:
-                                "Complete the table below. Write <strong>ONE WORD OR A NUMBER.</strong>",
-                            table: {
-                                headings: [
-                                    "Apartments",
-                                    "Facilities",
-                                    "Other information",
-                                    "Cost",
+                title: "Section 1",
+                questions: [
+                    {
+                        id: "q1-q5",
+                        questionRange: [1, 5],
+                        title: null,
+                        type: "tabular",
+                        questionHtml:
+                            "Complete the table below. Write <strong>ONE WORD OR A NUMBER.</strong>",
+                        table: {
+                            headings: [
+                                "Apartments",
+                                "Facilities",
+                                "Other information",
+                                "Cost",
+                            ],
+                            rows: [
+                                [
+                                    "Rose Garden Apartments",
+                                    "Studio flat",
+                                    "Entertainment: Greek dancing",
+                                    "£219",
                                 ],
-                                rows: [
-                                    [
-                                        "Rose Garden Apartments",
-                                        "Studio flat",
-                                        "Entertainment: Greek dancing",
-                                        "£219",
-                                    ],
-                                    [
-                                        "Blue Bay Apartments",
-                                        "Large salt water swimming pool",
-                                        "• Just <#1> meters away from breach.<br>• Near shops.",
-                                        "£275",
-                                    ],
-                                    [
-                                        "<#2> Apartments",
-                                        "Terrace",
-                                        "Water sports",
-                                        "£490",
-                                    ],
-                                    [
-                                        "The Grand",
-                                        "Greek paintings and <#3>",
-                                        "• Overlooking <#4>.<br>• Near a supermarket and a disco.",
-                                        "£<#5>",
-                                    ],
+                                [
+                                    "Blue Bay Apartments",
+                                    "Large salt water swimming pool",
+                                    "• Just <#1> meters away from breach.<br>• Near shops.",
+                                    "£275",
                                 ],
-                            },
+                                [
+                                    "<#2> Apartments",
+                                    "Terrace",
+                                    "Water sports",
+                                    "£490",
+                                ],
+                                [
+                                    "The Grand",
+                                    "Greek paintings and <#3>",
+                                    "• Overlooking <#4>.<br>• Near a supermarket and a disco.",
+                                    "£<#5>",
+                                ],
+                            ],
                         },
-                    ],
-                },
+                    },
+                ],
             },
         ],
         answers: {
