@@ -1,0 +1,40 @@
+.answer-blank {
+    color: #05f3ff;
+    font-style: italic;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    &::after,
+    &::before {
+        content: "___";
+    }
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    thead tr {
+        background-color: #006098;
+        color: #ffffff;
+        text-align: left;
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid var(--color-border);
+            &:nth-of-type(even) {
+                background-color: hsl(229, 47%, 14%);
+            }
+            &:last-of-type {
+                border-bottom: 2px solid #006098;
+            }
+        }
+    }
+    th,
+    td {
+        padding: 12px 15px;
+    }
+}

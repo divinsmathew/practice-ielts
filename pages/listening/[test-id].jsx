@@ -31,6 +31,12 @@ const Listening = () => {
         setIsTestPlaying(true);
     };
 
+    const endTest = () => {
+        setIsInstructionsVisible(false);
+        setIsQuestionsVisible(true);
+        setIsTestPlaying(true);
+    };
+
     useEffect(() => {
         let testId = router.query["test-id"];
         if (!testId) return;
@@ -55,9 +61,6 @@ const Listening = () => {
                             isTestPlaying={isTestPlaying}
                             test={test}
                         />
-                        <section
-                            className={styles["question-container"]}
-                        ></section>
 
                         {shouldShowInstructions() && (
                             <section
@@ -105,9 +108,17 @@ const Listening = () => {
                         )}
 
                         {shouldShowQuestions() && (
-                            <section className={styles["question-container"]}>
-                                <ListeningTest data={test} />
-                            </section>
+                            <>
+                                <section
+                                    className={styles["question-container"]}
+                                >
+                                    <ListeningTest data={test} />
+                                </section>
+
+                                <section className={styles["test-footer"]}>
+                                    <button className="button">End Test</button>
+                                </section>
+                            </>
                         )}
                     </AdsAndContainer>
                 </main>

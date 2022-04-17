@@ -38,7 +38,7 @@ const AudioVisualizer = ({ test, isTestPlaying }) => {
                     url={`/assets/audio/${test.id}.mp3`}
                     onDuration={updateTotalDuration}
                     onProgress={updatePlayerSeekStatus}
-                    volume={1}
+                    volume={0}
                     height={0}
                     width={0}
                 />
